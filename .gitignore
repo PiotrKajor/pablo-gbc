@@ -2,3 +2,5 @@
 tools/
 build/
 preview/
+__pycache__/
+*.pyc
