@@ -43,7 +43,7 @@
 #define B_RECOVER 5
 #define B_STUN    6
 #define B_DEAD    7
-#define BOSS_HP   20
+#define BOSS_HP   14
 #define BOSS_FLOOR_Y 88   /* top-left y when standing (floor top 120 - 32) */
 
 /* ------------------------------------------------------------ data */

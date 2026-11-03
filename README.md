@@ -23,7 +23,7 @@ Cała grafika, muzyka i dialogi są generowane proceduralnie skryptami w Pythoni
 
 Gotowy ROM: [`release/Pablo.gbc`](release/Pablo.gbc) (tylko Game Boy Color).
 
-- **Emulator** (SameBoy, BGB, mGBA): otwórz plik i graj.
+- **Emulator** (mGBA, SameBoy, BGB) lub **przeglądarka**: krótki poradnik w [`docs/EMULATORY.md`](docs/EMULATORY.md).
 - **EverDrive GB:** skopiuj na kartę, w opcjach ROM ustaw **Mapper = MBC5**, RAM 8K, Save RAM = YES.
   Przy mapperze „ROM” ekran zostaje biały po logo.
 
@@ -34,7 +34,7 @@ Gotowy ROM: [`release/Pablo.gbc`](release/Pablo.gbc) (tylko Game Boy Color).
 | ←/→ | ruch |
 | **A** | skok (przytrzymaj = wyżej) |
 | **B** | uderzenie nailem |
-| **SELECT** | dash (po zdobyciu Mothwing Cloak) |
+| **A** w powietrzu lub **SELECT** | dash (po zdobyciu Mothwing Cloak) |
 | **START** (przytrzymaj) | focus – leczy maskę kosztem duszy |
 | **↑** | rozmowa / odpoczynek i zapis na ławce |
 | **↓** | zeskok z cienkiej platformy |

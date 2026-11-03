@@ -72,7 +72,7 @@ void dialog(uint8_t id) BANKED {
 static void boss_start_wind(uint8_t next) {
     boss.state = B_WIND;
     boss.next = next;
-    boss.timer = (boss.hp <= BOSS_HP / 2) ? 24 : 36;
+    boss.timer = (boss.hp <= BOSS_HP / 2) ? 40 : 56;
     sfx_play(SFX_ROAR);
 }
 
@@ -118,8 +118,8 @@ void boss_update(void) BANKED {
         boss.face = (pcx < bx + 16);
         {
             int16_t d = pcx - (bx + 16);
-            if (d > 28) boss.x += p2 ? 14 : 9;
-            else if (d < -28) boss.x -= p2 ? 14 : 9;
+            if (d > 28) boss.x += p2 ? 10 : 7;
+            else if (d < -28) boss.x -= p2 ? 10 : 7;
         }
         if (boss.x < (8 << 4)) boss.x = 8 << 4;
         if (boss.x > (112 << 4)) boss.x = 112 << 4;
@@ -134,7 +134,7 @@ void boss_update(void) BANKED {
         boss.face = (pcx < bx + 16);
         if (boss.timer) boss.timer--;
         else {
-            if (boss.next == B_CHARGE) { boss.state = B_CHARGE; boss.timer = 90; boss.vx = boss.face ? -(p2 ? 56 : 46) : (p2 ? 56 : 46); }
+            if (boss.next == B_CHARGE) { boss.state = B_CHARGE; boss.timer = 90; boss.vx = boss.face ? -(p2 ? 42 : 36) : (p2 ? 42 : 36); }
             else {
                 int16_t d = (pcx - (bx + 16)) * 16 / 38;
                 if (d > 44) d = 44;
@@ -148,7 +148,7 @@ void boss_update(void) BANKED {
         boss.x += boss.vx;
         bx = boss.x >> 4;
         if (bx <= 8 || bx >= 112 || !boss.timer) {
-            if (boss.timer) { shake = 14; sfx_play(SFX_SLAM); boss.state = B_STUN; boss.timer = 55; }
+            if (boss.timer) { shake = 14; sfx_play(SFX_SLAM); boss.state = B_STUN; boss.timer = 90; }
             else { boss.state = B_IDLE; boss.timer = 24; }
             if (bx < 8) boss.x = 8 << 4;
             if (bx > 112) boss.x = 112 << 4;
@@ -163,7 +163,7 @@ void boss_update(void) BANKED {
         if (boss.vy > 0 && boss.y >= ((int16_t)BOSS_FLOOR_Y << 4)) {
             boss.y = (int16_t)BOSS_FLOOR_Y << 4;
             boss.vy = 0; boss.vx = 0;
-            boss.state = B_RECOVER; boss.timer = p2 ? 30 : 44;
+            boss.state = B_RECOVER; boss.timer = p2 ? 50 : 64;
             boss_spawn_wave();
             shake = 12;
             sfx_play(SFX_SLAM);
@@ -176,11 +176,11 @@ void boss_update(void) BANKED {
         break;
     case B_RECOVER:
         if (boss.timer) boss.timer--;
-        else { boss.state = B_IDLE; boss.timer = p2 ? 22 : 40; }
+        else { boss.state = B_IDLE; boss.timer = p2 ? 40 : 60; }
         break;
     case B_STUN:
         if (boss.timer) boss.timer--;
-        else { boss.state = B_IDLE; boss.timer = 30; }
+        else { boss.state = B_IDLE; boss.timer = 40; }
         break;
     case B_DEAD:
         if (boss.timer) {

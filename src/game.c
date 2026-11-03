@@ -144,8 +144,10 @@ static void player_update(void) {
                 else p.vx = 0;
             }
             /* jump */
+            uint8_t jumped = 0;
             if (PRESSED(J_A)) p.jbuf = 5;
             if (p.jbuf && (p.ground || p.coyote)) {
+                jumped = 1;
                 p.vy = -58;
                 p.ground = 0; p.coyote = 0; p.jbuf = 0;
                 sfx_play(SFX_JUMP);
@@ -157,8 +159,8 @@ static void player_update(void) {
                 sfx_play(SFX_ATTACK);
             }
             /* dash */
-            if (PRESSED(J_SELECT) && (gflags & GF_DASH) && !p.dash_cd && (p.ground || p.air_dash == 0)) {
-                p.dash = 11;
+            if ((PRESSED(J_SELECT) || (PRESSED(J_A) && !jumped && !p.ground && !p.coyote)) && (gflags & GF_DASH) && !p.dash_cd && (p.ground || p.air_dash == 0)) {
+                p.dash = 11; p.jbuf = 0;
                 if (!p.ground) p.air_dash = 1;
                 p.atk = 0;
                 sfx_play(SFX_DASH);
