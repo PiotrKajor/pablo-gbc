@@ -1,0 +1,15 @@
+import sys; sys.path.insert(0,'tests')
+from lib import *
+g = Game(save=(6, 3, 12, 3, 5))
+g.tick(150); g.tap('start', 4); g.tick(100)
+g.hold('right'); g.tick(60); g.hold()
+g.tick(80)
+g.shot('end_a')
+for i in range(12):
+    g.tick(70); g.tap('a', 3)
+    if i == 1: g.shot('end_b')
+g.tick(200)
+g.shot('credits')
+print('flags', g.flags())
+g.tap('start', 4); g.tick(200)
+g.shot('after_credits')
