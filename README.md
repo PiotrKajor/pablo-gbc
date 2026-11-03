@@ -39,6 +39,16 @@ Gotowy ROM: [`release/Pablo.gbc`](release/Pablo.gbc) (tylko Game Boy Color).
 | **↑** | rozmowa / odpoczynek i zapis na ławce |
 | **↓** | zeskok z cienkiej platformy |
 
+## Gameplay
+
+| Start gry | Ruch i atak |
+|:-:|:-:|
+| ![start](docs/gifs/01_start.gif) | ![ruch](docs/gifs/02_ruch_i_atak.gif) |
+
+| Dash (A w powietrzu) przez Przepaść |
+|:-:|
+| ![dash](docs/gifs/03_dash_przez_przepasc.gif) |
+
 ## Zrzuty ekranu
 
 | | | |
